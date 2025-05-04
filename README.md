@@ -58,6 +58,11 @@ Verify the installation:
 aztec  
 ```  
 
+Update and run Aztec Tools docker container
+```bash
+aztec-up alpha-testnet
+```
+
 #### Enable Firewall & Open Ports  
 ```bash
 # Firewall  
