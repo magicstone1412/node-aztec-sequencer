@@ -132,7 +132,13 @@ StandardError=journal
 [Install]
 WantedBy=multi-user.target 
 ```  
-Save and exit (`Ctrl+O`, `Enter`, `Ctrl+X`).  
+Save and exit (`Ctrl+O`, `Enter`, `Ctrl+X`).
+
+Creat `WorkingDirectory`
+
+```bash
+mkdir /root/.aztec/alpha-testnet
+```  
 
 ---
 
@@ -140,15 +146,15 @@ Save and exit (`Ctrl+O`, `Enter`, `Ctrl+X`).
 
 #### Enable and Start the Service  
 ```bash
-sudo systemctl daemon-reload  
-sudo systemctl enable aztec.service  
-sudo systemctl start aztec.service  
+sudo systemctl daemon-reload
+sudo systemctl enable aztec.service
+sudo systemctl start aztec.service 
 ```  
 The node may take a few minutes to sync.  
 
 #### Verify the Service  
 ```bash
-sudo systemctl status aztec.service  
+sudo systemctl status aztec.service
 ```  
 View logs:  
 ```bash
@@ -236,5 +242,5 @@ sudo systemctl start aztec.service
 
 ## Sources  
 - [Aztec Documentation](https://docs.aztec.network/)  
-- GitHub Guide by `0xmoei`  
+- GitHub Guide by [`0xmoei`](https://github.com/0xmoei/aztec-network)
 - Aztec Blog Posts
