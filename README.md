@@ -95,28 +95,30 @@ sudo nano /etc/systemd/system/aztec.service
 Paste the following configuration, replacing placeholders (`RPC_URL`, `BEACON_URL`, `0xYourPrivateKey`, `0xYourAddress`, `IP`) with your actual values:  
 
 ```ini
+[Unit]
 Description=Aztec Node Service
 After=network.target
-Wants=network.target 
+Wants=network.target
 
-[Service]  
-Type=simple  
-ExecStart=/root/.aztec/bin/aztec start --node --archiver --sequencer \ 
-  --network alpha-testnet \  
-  --l1-rpc-urls RPC_URL \  
-  --l1-consensus-host-urls BEACON_URL \  
-  --sequencer.validatorPrivateKey 0xYourPrivateKey \  
-  --sequencer.coinbase 0xYourAddress \  
-  --p2p.p2pIp IP  
-Restart=always  
-RestartSec=10  
-User=root  
-WorkingDirectory=/root/.aztec/alpha-testnet  
+[Service]
+Type=simple
+ExecStart=/root/.aztec/bin/aztec start --node --archiver --sequencer \
+  --network alpha-testnet \
+  --l1-rpc-urls RPC_URL \
+  --l1-consensus-host-urls BEACON_URL \
+  --sequencer.validatorPrivateKey 0xYourPrivateKey \
+  --sequencer.coinbase 0xYourAddress \
+  --p2p.p2pIp your_IP
+Restart=always
+RestartSec=10
+User=root
+Group=root
+WorkingDirectory=/root/.aztec/alpha-testnet
 StandardOutput=journal
 StandardError=journal
 
-[Install]  
-WantedBy=multi-user.target  
+[Install]
+WantedBy=multi-user.target 
 ```  
 Save and exit (`Ctrl+O`, `Enter`, `Ctrl+X`).  
 
