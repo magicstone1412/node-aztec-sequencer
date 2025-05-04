@@ -65,7 +65,6 @@ echo 'export PATH=$PATH:/root/.aztec/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-
 Update and run Aztec Tools docker container
 ```bash
 aztec-up alpha-testnet
@@ -167,17 +166,17 @@ To participate as a validator, register with the testnet’s staking contract (l
 
 #### Get the Latest Proven Block Number  
 ```bash
-curl -s -X POST -H 'Content-Type: application/json' \  
--d '{"jsonrpc":"2.0","method":"node_getL2Tips","params":[],"id":67}' \  
-http://localhost:8080 | jq -r ".result.proven.number"  
+curl -s -X POST -H 'Content-Type: application/json' \
+-d '{"jsonrpc":"2.0","method":"node_getL2Tips","params":[],"id":67}' \
+http://localhost:8080 | jq -r ".result.proven.number" 
 ```  
 Save the output (e.g., `20905`).  
 
 #### Generate Your Sync Proof  
 ```bash
-curl -s -X POST -H 'Content-Type: application/json' \  
--d '{"jsonrpc":"2.0","method":"node_getArchiveSiblingPath","params":["BLOCK_NUMBER","BLOCK_NUMBER"],"id":67}' \  
-http://localhost:8080 | jq -r ".result"  
+curl -s -X POST -H 'Content-Type: application/json' \
+-d '{"jsonrpc":"2.0","method":"node_getArchiveSiblingPath","params":["BLOCK_NUMBER","BLOCK_NUMBER"],"id":67}' \
+http://localhost:8080 | jq -r ".result" 
 ```  
 Replace both `BLOCK_NUMBER` entries with the value from above.  
 
