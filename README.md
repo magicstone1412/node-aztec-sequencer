@@ -56,7 +56,15 @@ Restart your terminal to apply changes.
 Verify the installation:  
 ```bash
 aztec  
-```  
+```
+
+Add the Aztec CLI binary path to your shell’s environment (if need)
+
+```bash
+echo 'export PATH=$PATH:/root/.aztec/bin' >> ~/.bashrc
+source ~/.bashrc
+```
+
 
 Update and run Aztec Tools docker container
 ```bash
@@ -84,9 +92,9 @@ curl ifconfig.me
 ```  
 Save the displayed IP address.  
 
-#### Obtain RPC URLs  
+#### RPC URLs  
 - Get a **Sepolia testnet RPC URL** (e.g., from Alchemy or Infura).  
-- Obtain a **Beacon RPC URL** (e.g., from https://chainstack.com/ or [Ankr](https://www.ankr.com/rpc/?utm_referral=haxc6QXd36) ).  
+- Get a **Beacon RPC URL** (e.g., from [chainstack](https://chainstack.com/) or [Ankr](https://www.ankr.com/rpc/?utm_referral=haxc6QXd36) ).  
 
 #### Set Up a Wallet  
 1. Create an Ethereum wallet (e.g., using MetaMask).  
