@@ -27,7 +27,7 @@ This guide outlines the steps to set up a sequencer node on the Aztec Network te
 
 #### Install Dependencies on Ubuntu  
 ```bash
-sudo apt update -y && sudo apt upgrade -y  
+sudo apt update -y && sudo apt upgrade -y
 sudo apt install curl git
 ```  
 
@@ -50,12 +50,12 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 #### Install Aztec Tools  
 ```bash
-bash -i <(curl -s https://install.aztec.network)  
+bash -i <(curl -s https://install.aztec.network)
 ```  
 Restart your terminal to apply changes.  
 Verify the installation:  
 ```bash
-aztec  
+aztec
 ```
 
 Add the Aztec CLI binary path to your shell’s environment (if need)
@@ -73,12 +73,12 @@ aztec-up alpha-testnet
 #### Enable Firewall & Open Ports  
 ```bash
 # Firewall  
-sudo ufw allow ssh  
-sudo ufw enable  
+sudo ufw allow ssh
+sudo ufw enable
 
 # Sequencer  
-sudo ufw allow 40400  
-sudo ufw allow 8080  
+sudo ufw allow 40400
+sudo ufw allow 8080
 ```  
 
 ---
@@ -87,7 +87,7 @@ sudo ufw allow 8080
 
 #### Find Your IP  
 ```bash
-curl ifconfig.me  
+curl ifconfig.me
 ```  
 Save the displayed IP address.  
 
@@ -102,7 +102,7 @@ Save the displayed IP address.
 
 #### Create a `systemd` Service File  
 ```bash
-sudo nano /etc/systemd/system/aztec.service  
+sudo nano /etc/systemd/system/aztec.service
 ```  
 Paste the following configuration, replacing placeholders (`RPC_URL`, `BEACON_URL`, `0xYourPrivateKey`, `0xYourAddress`, `IP`) with your actual values:  
 
@@ -120,7 +120,7 @@ ExecStart=/root/.aztec/bin/aztec start --node --archiver --sequencer \
   --l1-consensus-host-urls BEACON_URL \
   --sequencer.validatorPrivateKey 0xYourPrivateKey \
   --sequencer.coinbase 0xYourAddress \
-  --p2p.p2pIp your_IP
+  --p2p.p2pIp IP
 Restart=always
 RestartSec=10
 User=root
@@ -158,7 +158,7 @@ sudo systemctl status aztec.service
 ```  
 View logs:  
 ```bash
-sudo journalctl -u aztec.service -f  
+sudo journalctl -u aztec.service -f
 ```  
 
 ---
