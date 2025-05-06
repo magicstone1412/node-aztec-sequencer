@@ -65,7 +65,7 @@ echo 'export PATH=$PATH:/root/.aztec/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-Update and run Aztec Tools docker container
+Update Aztec Tools docker container to the latest version
 ```bash
 aztec-up alpha-testnet
 ```
