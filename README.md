@@ -134,10 +134,11 @@ WantedBy=multi-user.target
 ```  
 Save and exit (`Ctrl+O`, `Enter`, `Ctrl+X`).
 
-Creat `WorkingDirectory`
+
+Creat `data` folder for `WorkingDirectory`
 
 ```bash
-mkdir /root/.aztec/alpha-testnet
+mkdir -p /root/.aztec/alpha-testnet
 ```  
 
 ---
@@ -204,24 +205,27 @@ Replace both `BLOCK_NUMBER` entries with the value from above.
 
 #### Basic Commands  
 - **Stop/Restart**:  
-  ```bash
-  sudo systemctl stop aztec.service  
-  sudo systemctl restart aztec.service  
-  ```  
-- **Delete node data**:  
-  ```bash
-  rm -r /root/.aztec/alpha-testnet  
-  ```  
-- **View logs**:  
-  ```bash
-  sudo journalctl -u aztec.service -n 100  
-  ```  
 
-#### Updating the Node  
 ```bash
 sudo systemctl stop aztec.service  
-aztec-up alpha-testnet  
-sudo systemctl start aztec.service  
+sudo systemctl restart aztec.service  
+```  
+- **Delete node data**:  
+  ```bash
+  rm -rf /root/.aztec/alpha-testnet/data/  
+  ```  
+- **View logs**:  
+
+```bash
+sudo journalctl -u aztec.service -n 100  
+```  
+
+#### Updating the Node  
+
+```bash
+sudo systemctl stop aztec.service
+aztec-up alpha-testnet
+sudo systemctl start aztec.service
 ```  
 
 #### Troubleshooting  
