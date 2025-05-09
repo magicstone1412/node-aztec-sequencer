@@ -202,7 +202,13 @@ Replace both `BLOCK_NUMBER` entries with the value from above.
 
 ---
 
-### 6. Monitor and Maintain Your Node  
+### 6. Monitor and Maintain Your Node
+
+#### Check Sync Status
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/cerberus-node/aztec-network/refs/heads/main/sync-check.sh)
+```
 
 #### Basic Commands  
 - **Stop/Restart**:  
