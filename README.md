@@ -120,7 +120,8 @@ ExecStart=/root/.aztec/bin/aztec start --node --archiver --sequencer \
   --l1-consensus-host-urls BEACON_URL \
   --sequencer.validatorPrivateKey 0xYourPrivateKey \
   --sequencer.coinbase 0xYourAddress \
-  --p2p.p2pIp IP
+  --p2p.p2pIp IP \
+  --p2p.maxTxPoolSize 1000000000
 Restart=always
 RestartSec=10
 User=root
