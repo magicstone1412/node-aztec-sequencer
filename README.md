@@ -235,6 +235,17 @@ aztec-up alpha-testnet
 sudo systemctl start aztec.service
 ```  
 
+#### Peer ID tracking
+
+- **Find your peer id**: 
+
+```bash
+docker logs $(docker ps -q --filter name=aztec | head -n 1) 2>&1 | grep -i "peerId" | grep -o '"peerId":"[^"]*"' | cut -d'"' -f4 | head -n 1
+```
+
+Check your peer id on https://aztec.nethermind.io/
+
+
 #### Troubleshooting  
 - Ensure **Docker is running** and **ports are open**.  
 - Verify **RPC URLs** and **private key** are correct.  
