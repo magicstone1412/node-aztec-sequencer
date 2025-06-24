@@ -210,6 +210,17 @@ Replace both `BLOCK_NUMBER` entries with the value from above.
 bash <(curl -s https://raw.githubusercontent.com/cerberus-node/aztec-network/refs/heads/main/sync-check.sh)
 ```
 
+OR
+
+```bash
+curl -s -X POST http://localhost:8080 \
+    -H 'Content-Type: application/json' \
+    --data '{"jsonrpc":"2.0","method":"node_getBlockNumber","params":[],"id":67}' \
+    | jq -r '.result'
+```
+
+and compare with the latest block at https://aztecscan.xyz/ 
+
 #### Basic Commands  
 - **Stop/Restart**:  
 
