@@ -201,8 +201,54 @@ Replace both `BLOCK_NUMBER` entries with the value from above.
 ![Aztec-Discord](https://github.com/user-attachments/assets/cd8d8e76-6273-48fa-a189-406905160444)
 
 ---
+### 6. Installation Using Docker
 
-### 6. Monitor and Maintain Your Node
+Create `compose.yml` with the following contents and upload to `/root/aztec` folder. Remember replace your information such as `<Sepolia-RPC-address>`, `<Beacon-RPC>`, `<your-private-key>`, `<xx.xx.xx.xx>`
+
+```
+services:
+  aztec-node:
+    image: aztecprotocol/aztec:latest
+    restart: unless-stopped
+    environment:
+      ETHEREUM_HOSTS: "<Sepolia-RPC-address>"
+      L1_CONSENSUS_HOST_URLS: "<Beacon-RPC>"
+      DATA_DIRECTORY: /data
+      VALIDATOR_PRIVATE_KEY: <your-private-key>
+      P2P_IP: <xx.xx.xx.xx>
+      LOG_LEVEL: debug
+    entrypoint: >
+      sh -c 'node --no-warnings /usr/src/yarn-project/aztec/dest/bin/index.js start --network alpha-testnet start --node --archiver --sequencer'
+    ports:
+      - 40400:40400/tcp
+      - 40400:40400/udp
+      - 8080:8080
+
+    volumes:
+      - /root/.aztec/alpha-testnet/data:/data # Local directory
+```
+#### Stop aztec service if you're running it
+
+```
+sudo systemctl stop aztec.service
+sudo systemctl disable aztec.service
+```
+
+#### Run aztec using Docker
+
+```
+cd /root/aztec/
+docker compose up -d
+```
+#### Check log
+
+```
+docker logs aztec-aztec-node-1 -fn 50
+```
+
+---
+
+### 7. Monitor and Maintain Your Node
 
 #### Check Sync Status
 
