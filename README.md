@@ -208,13 +208,14 @@ Create `compose.yml` with the following contents and upload to `/root/aztec` fol
 ```
 services:
   aztec-node:
-    image: aztecprotocol/aztec:latest
+    image: aztecprotocol/aztec:1.1.2
     restart: unless-stopped
     environment:
       ETHEREUM_HOSTS: "<Sepolia-RPC-address>"
       L1_CONSENSUS_HOST_URLS: "<Beacon-RPC>"
       DATA_DIRECTORY: /data
-      VALIDATOR_PRIVATE_KEY: <your-private-key>
+      VALIDATOR_PRIVATE_KEYS: <your-private-key>
+      COINBASE: <your-address>
       P2P_IP: <xx.xx.xx.xx>
       LOG_LEVEL: debug
     entrypoint: >
